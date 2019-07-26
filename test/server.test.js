@@ -71,30 +71,46 @@ describe('POST /with id', function() {
 //DataBase Testing
 
 describe('GET one Product', function() {
-  it('futch one product from the DataBase', async () => {
+  it('fetches one product from the DataBase', async () => {
     let expected = "http://lorempixel.com/640/480/nature";
-    const productImg =await db.gitProductImage('1213d10e-b6b5-4d6d-af44-2b10d334ed52')
-    assert(productImg.rows[0].img_url, expected);
+    const productImg = await db.gitProductImage('1213d10e-b6b5-4d6d-af44-2b10d334ed52')
+    console.log(`expected: ${productImg.rows[0].img_url} to equal: ${expected}`)
+    assert.equal(productImg.rows[0].img_url, expected);
   });
 });
 
-describe('return undefind', function() {
-  it('return undefind if id does not exist', async () => {
+describe('return empty OBJ', function() {
+  it('return empty OBJ if id does not exist', async () => {
     let expected = {};
-    const productImg =await db.gitProductImage('1213d10e-b6b5-4d6d-af44-2bd334ed')
-    assert(productImg, expected);
+    const productImg = await db.gitProductImage('1213d10e-b6b5-4d6d-af44-2bd334ed')
+    console.log(`expected: ${productImg} to equal: ${expected}`)
+    assert.equal(JSON.stringify(productImg), JSON.stringify(expected) );
   });
 });
 
-describe('GET / one image', function() {
+describe('GET / an image', function() {
   let expected ='http://lorempixel.com/640/480/nature'
-  it('GET one image url from the dataBase using the server', async () => {
+  it('GET an image url from the dataBase using the server', async () => {
     const result = await request(app).get('/1213d10e-b6b5-4d6d-af44-2b10d334ed52');
-    assert(result.text, expected);
-  
-  //   expect(res, function (err) {
-  //       console.log(res)
-  //       done();
-  //     });
+    console.log(`expected: ${result.res.text} to equal: ${expected}`)
+    assert.equal(result.res.text, expected);
+  });
+});
+
+describe('GET / can not git an image without id', function() {
+  let expected ='http://lorempixel.com/640/480/nature'
+  it('Can not GET an image url from the dataBase using the server without id', async () => {
+    const result = await request(app).get('/');
+    console.log(`expected: ${result.res.text} not to equal: http://lorempixel.com/640/480/nature`)
+     assert.notEqual(result.res.text, expected);
+  });
+});
+
+describe('GET / can not git an image with wronge id', function() {
+  let expected = 'http://lorempixel.com/640/480/nature'
+  it('Can not GET an image url from the dataBase using the server with wronge id', async () => {
+    const result = await request(app).get('/');
+    console.log(`expected: ${result.res.text} not to equal: http://lorempixel.com/640/480/nature`)
+     assert.notEqual(result.res.text, expected);
   });
 });

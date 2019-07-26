@@ -1,0 +1,26 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "pg_start": "l& &aunchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist",
+    "pg_stop": "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "expect.js": "^0.3.1",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "pg": "^7.12.0"
+  },
+  "devDependencies": {
+    "supertest": "^4.0.2"
+  },
+  "keywords": [],
+  "description": ""
+}

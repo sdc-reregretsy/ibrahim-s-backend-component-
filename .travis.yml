@@ -2,6 +2,8 @@ sudo: false
 language: node_js
 node_js:
   - "stable"
+  services:
+  - postgresql
 script: npm run test
 nofications: 
   email: false

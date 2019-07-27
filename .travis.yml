@@ -1,3 +1,6 @@
+before_script:
+  - psql -c 'create database retsy_database;' -U postgres
+  - psql -d retsy_database -c 'CREATE TABLE products (id text unique,img_url text);' -U postgres
 sudo: false
 language: node_js
 node_js:
@@ -6,11 +9,8 @@ services:
   - postgresql
 addons:
   postgresql: "11.4"
-before_script:
-  - psql -c 'create database retsy_database;' -U postgres
-  - psql -d retsy_database -c 'CREATE TABLE products (id text unique,img_url text);' -U postgres
-  - psql -d retsy_database -c "INSERT INTO product VALUES ('1213d10e-b6b5-4d6d-af44-2b10d334ed52','http://lorempixel.com/640/480/nature');" -U postgres
-
-script: npm run test
+script:
+  - ./test/init-db.sh
+  - npm run test
 nofications: 
   email: false

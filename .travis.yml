@@ -7,11 +7,11 @@ services:
 addons:
   postgresql: "11.4"
 before_script:
-  - psql -c 'create database retsy;' -U postgres
+  - psql -c 'USE database retsy;' -U postgres
   - psql -c "CREATE USER ibrahim WITH PASSWORD '121203';" -U postgres
-# before_script:
-#   - psql -c "CREATE DATABASE retsy;" -U postgres
-#   - psql -c "CREATE USER ibrahim WITH PASSWORD '121203';" -U postgres
+# # before_script:
+# #   - psql -c "CREATE DATABASE retsy;" -U postgres
+# #   - psql -c "CREATE USER ibrahim WITH PASSWORD '121203';" -U postgres
 script: npm run test
 nofications: 
   email: false

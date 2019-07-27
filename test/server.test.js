@@ -74,7 +74,7 @@ describe('GET one Product', function() {
   it('fetches one product from the DataBase', async () => {
     let expected = "http://lorempixel.com/640/480/nature";
     const productImg = await db.gitProductImage('1213d10e-b6b5-4d6d-af44-2b10d334ed52')
-    console.log(`expected: ${productImg.rows[0].img_url} to equal: ${expected}`)
+    console.log(`expected: ${productImg} to equal: ${expected}`)
     assert.equal(productImg.rows[0].img_url, expected);
   });
 });
@@ -92,7 +92,7 @@ describe('GET / an image', function() {
   let expected ='http://lorempixel.com/640/480/nature'
   it('GET an image url from the dataBase using the server', async () => {
     const result = await request(app).get('/1213d10e-b6b5-4d6d-af44-2b10d334ed52');
-    console.log(`expected: ${result.res.text} to equal: ${expected}`)
+    console.log(`expected: ${result} to equal: ${expected}`)
     assert.equal(result.res.text, expected);
   });
 });

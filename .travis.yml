@@ -1,14 +1,12 @@
 before_script:
   - psql -c 'create database retsy_database;' -U postgres
   - psql -d retsy_database -c 'CREATE TABLE products (id text unique,img_url text);' -U postgres
-sudo: false
+sudo: true
 language: node_js
 node_js:
   - "stable"
 services:
   - postgresql
-addons:
-  postgresql: "11.4"
 script:
   - ./test/init-db.sh
   - npm run test

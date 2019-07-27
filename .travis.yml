@@ -2,10 +2,10 @@ sudo: true
 language: node_js
 node_js:
   - "stable"
-services:
-  - postgresql
-addons:
-  postgresql: "11.4"
+# services:
+#   - postgresql
+# addons:
+#   postgresql: "11.4"
 test:
   adapter: postgresql
   user: ibrahim

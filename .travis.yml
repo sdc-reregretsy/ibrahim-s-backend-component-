@@ -2,16 +2,20 @@ sudo: true
 language: node_js
 node_js:
   - "stable"
+before_script:
+  - psql -c 'create database test_reregretsy_database;' -U postgres
+  - psql -d test_reregretsy_database -c 'CREATE TABLE products (id text unique, product_name text, product_price real, img_url text, seller_name text,seller_username text, seller_avatar text);' -U postgres
+  - psql -d test_reregretsy_database -c 'INSERT INTO product VALUES ('1213d10e-b6b5-4d6d-af44-2b10d334ed52',"http://lorempixel.com/640/480/nature");' -U postgres
 # services:
 #   - postgresql
 # addons:
 #   postgresql: "11.4"
-test:
-  adapter: postgresql
-  user: ibrahim
-  host: localhost
-  database: retsy
-  password: 121203
+# test:
+#   adapter: postgresql
+#   user: ibrahim
+#   host: localhost
+#   database: retsy
+#   password: 121203
 # before_script:
 #   - psql -c 'USE retsy;' -U postgres  
 # before_script:

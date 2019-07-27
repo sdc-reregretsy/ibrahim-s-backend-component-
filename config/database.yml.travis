@@ -1,5 +1,0 @@
-postgres:
-  user: ibrahim
-  host: localhost
-  database: retsy
-  password: 121203

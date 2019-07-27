@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "pg_start": "l& &aunchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist",
-    "pg_stop": "launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    "pg_start":"launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist",
+    "pg_stop":"launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
   },
   "author": "",
   "license": "ISC",

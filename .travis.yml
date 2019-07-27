@@ -1,6 +1,6 @@
 before_script:
-  - psql -c 'create database retsy_database;'
-  - psql -d retsy_database -c 'CREATE TABLE products (id text unique,img_url text);'
+  - psql -c 'create database retsy;'
+  - psql -d retsy -c 'CREATE TABLE products (id text unique,img_url text);'
 sudo: true
 language: node_js
 node_js:

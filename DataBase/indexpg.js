@@ -1,7 +1,6 @@
 const { Client } = require('pg')
 const client = new Client({
-    database: 'retsy_database',
-    
+    database: 'retsy',
   })
 client.connect()
 .then(() => console.log('Connected to db'))
@@ -16,4 +15,4 @@ async function gitProductImage(id){
   }
  
 }
-module.exports={gitProductImage}
+module.exports = { client, gitProductImage }

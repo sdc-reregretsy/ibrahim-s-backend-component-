@@ -7,7 +7,7 @@ app.use(cors())
 app.get(`/:id`, async (req, res) =>{
     try{
         if(req.params.id ==='test'){
-            res.send('you did it')
+            res.status(200).send('you did it')
         }else if(req.params.id.length ===36){
             const productImg =await db.gitProductImage(req.params.id)
             res.send(productImg.rows[0].img_url)

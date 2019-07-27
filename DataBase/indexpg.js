@@ -1,7 +1,7 @@
 const { Client } = require('pg')
 const client = new Client({
-    database: 'retsy',
-    password: '121203',
+    database: 'retsy_database',
+    
   })
 client.connect()
 .then(() => console.log('Connected to db'))

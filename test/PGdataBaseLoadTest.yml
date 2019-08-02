@@ -2,16 +2,16 @@ config:
   target: "http://localhost:3000"
   phases:
     - duration: 20
-      arrivalRate: 12
+      arrivalRate: 11
   payload:
     path: "payload.csv"
     fields:
       - "id"
 scenarios:
-  - name: "GET /{ id }"
+  - name: "GET /pg/{ id }"
     flow:
       - loop:
         - get:
-            url: "/{{ id }}"
+            url: "/pg/{{ id }}"
             gzip: true
         count: 100 

@@ -1,6 +1,10 @@
 const { Client } = require('pg')
 const client = new Client({
-    database: 'retsy',
+    user: 'postgres',
+    host: 'ec2-18-219-202-42.us-east-2.compute.amazonaws.com',
+    database: 'resty',
+    password: '121203',
+    port: 5432,
   })
 client.connect()
 .then(() => console.log('Connected to db'))
@@ -15,4 +19,5 @@ async function gitProductImage(id){
   }
  
 }
+
 module.exports = { client, gitProductImage }
